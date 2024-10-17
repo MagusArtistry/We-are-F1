@@ -64,11 +64,14 @@ public class ConstructorsStandingsSmallProfileAdapter extends RecyclerView.Adapt
 
         // Assign a unique ID to the FrameLayout if it doesn't already have one
         if (holder.fragmentContainer.getId() == View.NO_ID) {
-            holder.fragmentContainer.setId(View.generateViewId());
+            int uniqueId = View.generateViewId();
+            holder.fragmentContainer.setId(uniqueId);
         }
 
+        // Set up the toggle behavior
         holder.itemView.setOnClickListener(v -> toggleFragment(holder, position));
     }
+
 
 
 
@@ -76,7 +79,6 @@ public class ConstructorsStandingsSmallProfileAdapter extends RecyclerView.Adapt
 
     private void toggleFragment(ViewHolder holder, int position) {
         FrameLayout fragmentContainer = holder.fragmentContainer;
-
         Fragment fragment = fragmentManager.findFragmentById(fragmentContainer.getId());
 
         if (fragment != null) {
@@ -90,6 +92,7 @@ public class ConstructorsStandingsSmallProfileAdapter extends RecyclerView.Adapt
                     .commit();
         }
     }
+
 
 
 
@@ -109,7 +112,8 @@ public class ConstructorsStandingsSmallProfileAdapter extends RecyclerView.Adapt
             positionTextView = itemView.findViewById(R.id.constructor_standing_page_row_pos);
             teamTextView = itemView.findViewById(R.id.constructor_standing_page_row_team);
             pointsTextView = itemView.findViewById(R.id.constructor_standing_page_row_pts);
-            fragmentContainer = itemView.findViewById(R.id.constructor_standing_small_profile_fragment_container); // Initialize
+            fragmentContainer = itemView.findViewById(R.id.constructor_standing_small_profile_fragment_container);
         }
     }
+
 }
