@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "484470804593",
+    "firebase_url": "https://wearef1-app-default-rtdb.firebaseio.com",
+    "project_id": "wearef1-app",
+    "storage_bucket": "wearef1-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484470804593:android:9ddf3cb81aa74d07e60bd0",
+        "android_client_info": {
+          "package_name": "com.example.wearef1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy3feGql408tN_gp3aEU6N2L-1cZ_VCUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

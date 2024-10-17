@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_nav_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/red"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/bottom_nav_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_icon_black"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:contentDescription="Home Button"/>
+
+    <View
+        android:layout_width="4dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <ImageView
+        android:id="@+id/bottom_nav_upcoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/upcoming_icon_black"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:contentDescription="Upcoming Button"/>
+
+    <View
+        android:layout_width="4dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <ImageView
+        android:id="@+id/bottom_nav_community"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/community_icon_black"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:contentDescription="Community Button"/>
+
+    <View
+        android:layout_width="4dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <ImageView
+        android:id="@+id/bottom_nav_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/profile_icon_black"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:contentDescription="Profile Button"/>
+
+</LinearLayout>

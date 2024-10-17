@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarThumbVertical="@color/transparent"
+    android:scrollbarTrackVertical="@color/transparent"
+    android:background="@color/black">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".HomePageFragment">
+
+    <ImageView
+        android:id="@+id/driver_profile_main_pic"
+        android:layout_width="230dp"
+        android:layout_height="340dp"
+        android:src="@drawable/lewis_hamilton_profile_pic_temp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/driver_profile_main_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:textSize="30sp"
+        android:text="Lewis Hamilton"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/driver_profile_main_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:textSize="22sp"
+        android:text="United Kingdom"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/driver_profile_main_name"/>
+
+    <TextView
+        android:id="@+id/driver_profile_main_team_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:textSize="22sp"
+        android:text="Mercedes"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/driver_profile_main_country"/>
+
+    <TextView
+        android:id="@+id/driver_profile_main_podiums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:textSize="22sp"
+        android:text="207 Podiums"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/driver_profile_main_team_name"/>
+
+    <TextView
+        android:id="@+id/driver_profile_main_wc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:textSize="22sp"
+        android:text="7 WCs"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/driver_profile_main_podiums"/>
+
+    <Button
+        android:id="@+id/driver_profile_main_seeMore_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See More"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/red"
+        android:textSize="22sp"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/driver_profile_main_wc"/>
+
+    <TextView
+        android:id="@+id/constructors_standing_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:textSize="22sp"
+        android:text="2024 Constructors Standing"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_profile_main_pic"/>
+
+    <LinearLayout
+        android:id="@+id/constructors_standing_header_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/constructors_standing_heading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/constructors_standing_header_row_pos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="POS"
+            android:textSize="22sp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_textview"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textStyle="bold|italic"/>
+
+        <TextView
+            android:id="@+id/constructors_standing_header_row_team"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Team"
+            android:textSize="22sp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_textview"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:gravity="start|center_vertical"
+            android:paddingStart="10dp"
+            android:textStyle="bold|italic"/>
+
+        <TextView
+            android:id="@+id/constructors_standing_header_row_pts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="PTS"
+            android:background="@drawable/rounded_textview"
+            android:padding="5dp"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textStyle="bold|italic"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/constructors_standing_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@id/constructors_standing_header_row"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"/>
+
+    <Button
+        android:id="@+id/see_all_constructors_standing_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/red"
+        android:text="See All"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/constructors_standing_recycler_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/drivers_standing_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:textStyle="bold|italic"
+            android:textSize="22sp"
+            android:text="2024 Drivers Standing"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/see_all_constructors_standing_button"/>
+
+        <LinearLayout
+            android:id="@+id/drivers_standing_header_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/drivers_standing_heading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/drivers_standing_header_row_pos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="POS"
+                android:textSize="22sp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/rounded_textview"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textStyle="bold|italic"/>
+
+            <TextView
+                android:id="@+id/drivers_standing_header_row_team"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="Driver"
+                android:textSize="22sp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/rounded_textview"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:gravity="start|center_vertical"
+                android:paddingStart="10dp"
+                android:textStyle="bold|italic"/>
+
+            <TextView
+                android:id="@+id/drivers_standing_header_row_pts"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PTS"
+                android:background="@drawable/rounded_textview"
+                android:padding="5dp"
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textStyle="bold|italic"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/drivers_standing_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@id/drivers_standing_header_row"
+            android:layout_marginTop="10dp"
+            android:scrollbars="none"/>
+
+        <Button
+            android:id="@+id/see_all_drivers_standing_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:text="See All"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/drivers_standing_recycler_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout></ScrollView>
