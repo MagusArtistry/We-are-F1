@@ -72,7 +72,7 @@ public class ConstructorsStandingsFragment extends Fragment {
         pointsTextView.setTextColor(color);
     }
 
-    private void toggleFragment(FrameLayout fragmentContainer) {
+    private void toggleFragment(FrameLayout fragmentContainer, int position) {
         Fragment fragment = fragmentManager.findFragmentById(fragmentContainer.getId());
 
         if (fragment != null) {
@@ -81,7 +81,7 @@ public class ConstructorsStandingsFragment extends Fragment {
             fragmentContainer.setVisibility(View.GONE);
         } else {
             // Add a new fragment
-            ConstructorStandingPageSmallProfileFragment fragmentToDisplay = new ConstructorStandingPageSmallProfileFragment();
+            ConstructorStandingPageSmallProfileFragment fragmentToDisplay = ConstructorStandingPageSmallProfileFragment.newInstance(constructorStandings.get(position).getTeam().toLowerCase(), "2024");
             fragmentManager.beginTransaction()
                     .replace(fragmentContainer.getId(), fragmentToDisplay)
                     .commit();
@@ -138,8 +138,10 @@ public class ConstructorsStandingsFragment extends Fragment {
                             // Add row to container layout
                             containerLayout.addView(row);
 
+                            final int position = i;
+
                             // Add click listener to toggle fragment
-                            row.setOnClickListener(v -> toggleFragment(fragmentContainer));
+                            row.setOnClickListener(v -> toggleFragment(fragmentContainer, position));
                         }
 
                     } catch (JSONException e) {

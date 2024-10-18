@@ -70,9 +70,19 @@ public class LoginActivity extends AppCompatActivity {
                     FirebaseUser user = mAuth.getCurrentUser();
                     if (user != null) {
                         Toast.makeText(LoginActivity.this, "Login successful! Welcome, " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                         startActivity(intent);
-                         finish();
+                        // Get the user's ID token
+                        user.getIdToken(true).addOnCompleteListener(tokenTask -> {
+                            if (tokenTask.isSuccessful()) {
+                                String idToken = tokenTask.getResult().getToken();
+                                // Store the token in SharedPreferences
+                                getSharedPreferences("MyPrefs", MODE_PRIVATE).edit()
+                                        .putString("token", idToken)
+                                        .apply();
+                            }
+                        });
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 } else {
                     String errorMessage = task.getException() != null ? task.getException().getMessage() : "Unknown error";
@@ -81,4 +91,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         );
     }
+
 }
