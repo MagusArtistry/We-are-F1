@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,8 @@ public class HomePageFragment extends Fragment {
 
     private List<ConstructorStanding> top5ConstructorStandings = new ArrayList<>();
     private List<DriversStanding> top5DriversStandings = new ArrayList<>();
+    private Button constructorStandingSeeAllButton;
+    private Button driverStandingSeeAllButton;
 
     @Nullable
     @Override
@@ -58,6 +61,17 @@ public class HomePageFragment extends Fragment {
         // Fetch constructor and driver standings
         fetchConstructorStandings();
         fetchDriverStandings();
+
+        constructorStandingSeeAllButton = view.findViewById(R.id.see_all_constructors_standing_button);
+        driverStandingSeeAllButton = view.findViewById(R.id.see_all_drivers_standing_button);
+
+        constructorStandingSeeAllButton.setOnClickListener(v -> {
+            replaceFragment(new ConstructorsStandingsFragment());
+        });
+
+        driverStandingSeeAllButton.setOnClickListener(v -> {
+//            replaceFragment(new NewFragment());
+        });
 
         return view;
     }
@@ -137,5 +151,15 @@ public class HomePageFragment extends Fragment {
         );
 
         volleyQueue.add(jsonObjectRequest);
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        if (getActivity() != null) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 }

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    tools:context=".TeamDetailFragment">
+
+    <TextView
+        android:id="@+id/team_detail_page_heading_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:textSize="26sp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/team_detail_page_car_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_heading_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Base -->
+    <TextView
+        android:id="@+id/team_detail_page_team_base"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Base"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/team_detail_page_team_base_value"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_car_pic"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/team_detail_page_team_base_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/team_detail_page_team_base"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_car_pic" />
+
+    <!-- Principal -->
+    <TextView
+        android:id="@+id/team_detail_page_team_principal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Team Principal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/team_detail_page_team_principal_value"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_base_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/team_detail_page_team_principal_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/team_detail_page_team_principal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_base_value" />
+
+    <!-- Principal -->
+    <TextView
+        android:id="@+id/team_detail_page_team_technical_chief"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Team Chief"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/team_detail_page_team_technical_chief_value"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_principal_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/team_detail_page_team_technical_chief_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/team_detail_page_team_technical_chief"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_principal_value" />
+
+    <!-- Chassis -->
+    <TextView
+        android:id="@+id/team_detail_page_team_chassis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Chassis"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/team_detail_page_team_chassis_value"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_technical_chief_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/team_detail_page_team_chassis_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/team_detail_page_team_chassis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_technical_chief_value" />
+
+    <!-- Power Unit -->
+    <TextView
+        android:id="@+id/team_detail_page_team_power_unit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Power Unit"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/team_detail_page_team_power_unit_value"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_chassis_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/team_detail_page_team_power_unit_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/team_detail_page_team_power_unit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_chassis_value" />
+
+    <!-- World Championships -->
+    <TextView
+        android:id="@+id/team_detail_page_team_wc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="World Champs"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/team_detail_page_team_wc_value"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_power_unit_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/team_detail_page_team_wc_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/team_detail_page_team_wc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_power_unit_value" />
+
+    <!-- Pole Positions Count -->
+    <TextView
+        android:id="@+id/team_detail_page_pole_positions_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Pole Positions"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/team_detail_page_pole_positions_count_value"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_wc"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/team_detail_page_pole_positions_count_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/team_detail_page_pole_positions_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_wc_value" />
+
+    <!-- Fastest Laps Count -->
+    <TextView
+        android:id="@+id/team_detail_page_fastest_laps_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Fastest Laps"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/team_detail_page_fastest_laps_count_value"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_pole_positions_count_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/team_detail_page_fastest_laps_count_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/team_detail_page_fastest_laps_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_pole_positions_count_value" />
+
+    <!-- Drivers Section Header -->
+    <TextView
+        android:id="@+id/team_detail_page_drivers_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drivers"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_fastest_laps_count_value" />
+
+    <!-- Driver Names Row -->
+    <LinearLayout
+        android:id="@+id/team_detail_page_drivers_names"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_drivers_heading">
+
+        <TextView
+            android:id="@+id/team_detail_page_driver1_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/team_detail_page_driver2_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- Driver Images Row -->
+    <LinearLayout
+        android:id="@+id/team_detail_page_drivers_images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_drivers_names">
+
+        <ImageView
+            android:id="@+id/team_detail_page_driver1_pic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="Driver 1"
+            android:src="@drawable/blank_drawable"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            android:layout_margin="0dp"/>
+
+        <ImageView
+            android:id="@+id/team_detail_page_driver2_pic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="Driver 2"
+            android:src="@drawable/blank_drawable"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            android:layout_margin="0dp"/>
+    </LinearLayout>
+
+
+    <!-- Clickable Areas for Drivers -->
+    <LinearLayout
+        android:id="@+id/team_detail_page_drivers_clickable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/team_detail_page_drivers_images">
+
+        <Button
+            android:id="@+id/driver1_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Show Driver"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/red"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/driver2_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Show Driver"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/red"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

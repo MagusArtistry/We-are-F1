@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        ConstructorsStandingsFragment fragment = new ConstructorsStandingsFragment();
+        HomePageFragment fragment = new HomePageFragment();
         fragmentTransaction.replace(R.id.main_fragment_container, fragment);
         fragmentTransaction.commit();
 

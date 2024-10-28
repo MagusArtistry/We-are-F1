@@ -39,10 +39,17 @@
         app:layout_constraintBottom_toTopOf="@id/include_bottom_navigation"
         android:padding="16dp">
 
-        <FrameLayout
-            android:id="@+id/main_fragment_container"
+        <!-- Add ScrollView around FrameLayout to enable scrolling -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <FrameLayout
+                android:id="@+id/main_fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </ScrollView>
     </LinearLayout>
 
     <include
@@ -53,4 +60,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,11 +5,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,6 +42,7 @@ public class ConstructorStandingPageSmallProfileFragment extends Fragment {
     private ImageView imageView;
     private TextView team_principal_name_view;
     private TextView team_wins_view;
+    private Button viewAllButton;
     private TextView team_drivers_view;
     private FirebaseStorage storage;
 
@@ -59,8 +63,6 @@ public class ConstructorStandingPageSmallProfileFragment extends Fragment {
         if (getArguments() != null) {
             team_name = getArguments().getString(ARG_TEAM_NAME);
             info_year = getArguments().getString(ARG_INFO_YEAR);
-
-
         }
     }
 
@@ -72,6 +74,17 @@ public class ConstructorStandingPageSmallProfileFragment extends Fragment {
         team_principal_name_view = view.findViewById(R.id.constructor_standing_page_team_principal_value);
         team_wins_view = view.findViewById(R.id.constructor_standing_page_team_wins_value);
         team_drivers_view = view.findViewById(R.id.constructor_standing_page_team_drivers_value);
+        viewAllButton = view.findViewById(R.id.constructor_standing_page_view_team_button);
+
+        viewAllButton.setOnClickListener(v -> {
+            TeamDetailFragment detailsFragment = TeamDetailFragment.newInstance(team_name, info_year);
+
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.main_fragment_container, detailsFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        });
 
         storage = FirebaseStorage.getInstance();
         getTeamData();
