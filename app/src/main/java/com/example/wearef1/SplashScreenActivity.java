@@ -38,40 +38,40 @@ public class SplashScreenActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
 
         ImageView logo = findViewById(R.id.f1_logo);
+
+//        DatabaseReference database = FirebaseDatabase.getInstance().getReference("drivers");
 //
-//        DatabaseReference database = FirebaseDatabase.getInstance().getReference("teams");
+//        String[][] drivers = {
+//                {"Max Verstappen", "Oracle Red Bull Racing", "Netherlands", "110", "2948.5", "205", "3", "30/09/1997", "Dutch", "verstappen", "2024"},
+//                {"Lando Norris", "McLaren Formula 1 Team", "United Kingdom", "25", "948", "124", "0", "13/11/1999", "British", "norris", "2024"},
+//                {"Charles Leclerc", "Scuderia Ferrari", "Monaco", "41", "1365", "145", "0", "16/10/1997", "Monegasque", "leclerc", "2024"},
+//                {"Oscar Piastri", "McLaren Formula 1 Team", "Australia", "9", "348", "42", "0", "06/04/2001", "Australian", "piastri", "2024"},
+//                {"Carlos Sainz", "Scuderia Ferrari", "Spain", "25", "1222.5", "204", "0", "01/09/1994", "Spanish", "sainz", "2024"},
+//                {"Lewis Hamilton", "Mercedes-AMG PETRONAS F1 Team", "United Kingdom", "201", "4828.5", "352", "7", "07/01/1985", "British", "hamilton", "2024"},
+//                {"George Russell", "Mercedes-AMG PETRONAS F1 Team", "United Kingdom", "14", "646", "124", "0", "15/02/1998", "British", "russell", "2024"},
+//                {"Sergio Perez", "Oracle Red Bull Racing", "Mexico", "39", "1636", "278", "0", "26/01/1990", "Mexican", "perez", "2024"},
+//                {"Fernando Alonso", "Aston Martin Aramco F1 Team", "Spain", "106", "2329", "400", "2", "29/07/1981", "Spanish", "alonso", "2024"},
+//                {"Nico Hulkenberg", "MoneyGram Haas F1 Team", "Germany", "0", "561", "226", "0", "19/08/1987", "German", "hulkenberg", "2024"},
+//                {"Lance Stroll", "Aston Martin Aramco F1 Team", "Canada", "3", "292", "163", "0", "29/10/1998", "Canadian", "stroll", "2024"},
+//                {"Yuki Tsunoda", "Visa Cash App RB Formula One Team", "Japan", "0", "83", "86", "0", "11/05/2000", "Japanese", "tsunoda", "2024"},
+//                {"Kevin Magnussen", "MoneyGram Haas F1 Team", "Denmark", "1", "200", "183", "0", "05/10/1992", "Danish", "magnussen", "2024"},
+//                {"Alexander Albon", "Williams Racing", "Thailand", "2", "240", "101", "0", "23/03/1996", "Thai", "albon", "2024"},
+//                {"Daniel Ricciardo", "Visa Cash App RB Formula One Team", "Australia", "32", "1329", "258", "0", "01/07/1989", "Australia", "ricciardo", "2024"},
+//                {"Pierre Gasly", "BWT Alpine F1 Team", "France", "4", "403", "150", "0", "07/02/1996", "French", "gasly", "2024"},
+//                {"Oliver Bearman", "Scuderia Ferrari", "United Kingdom", "0", "7", "2", "0", "08/05/2005", "British", "bearman", "2024"},
+//                {"Franco Colapinto", "Williams Racing", "Argentina", "0", "5", "5", "0", "27/05/2003", "Argentinian", "colapinto", "2024"},
+//                {"Esteban Ocon", "BWT Alpine F1 Team", "France", "3", "427", "153", "0", "17/09/1996", "French", "ocon", "2024"},
+//                {"Liam Lawson", "Visa Cash App RB Formula One Team", "New Zealand", "0", "4", "7", "0", "11/02/2002", "New Zealander", "lawson", "2024"},
+//                {"Zhou Guanyu", "Stake F1 Team Kick Sauber", "China", "0", "12", "64", "0", "30/05/1999", "Chinese", "guanyu", "2024"},
+//                {"Logan Sargeant", "Williams Racing", "United States", "0", "1", "37", "0", "31/12/2000", "American", "sargeant", "2024"},
+//                {"Valtteri Bottas", "Stake F1 Team Kick Sauber", "Finland", "67", "1797", "242", "0", "28/08/1989", "Finnish", "bottas", "2024"}
+//                };
 //
-//        String[][] teams = {
-//                {"Mercedes-AMG PETRONAS F1 Team", "Brackley, United Kingdom", "Toto Wolff", "James Allison", "W15", "Mercedes", "8", "131", "100", "Lewis Hamilton", "George Russell", "Mercedes", "2024"},
-//                {"Oracle Red Bull Racing", "Milton Keynes, United Kingdom", "Christian Horner", "Pierre Waché", "RB20", "Honda RBPT", "6", "105", "98", "Max Verstappen", "Sergio Pérez", "Red Bull", "2024"},
-//                {"Scuderia Ferrari", "Maranello, Italy", "Frédéric Vasseur", "Enrico Cardile", "SF-24", "Ferrari", "16", "252", "262", "Charles Leclerc", "Carlos Sainz", "Ferrari", "2024"},
-//                {"McLaren Formula 1 Team", "Woking, United Kingdom", "Andrea Stella", "Peter Prodromou", "MCL38", "Mercedes", "8", "162", "170", "Lando Norris", "Oscar Piastri", "McLaren", "2024"},
-//                {"BWT Alpine F1 Team", "Enstone, United Kingdom", "Oliver Oakes", "David Sanchez", "A524", "Renault", "2", "20", "15", "Pierre Gasly", "Esteban Ocon", "Alpine F1 Team", "2024"},
-//                {"Aston Martin Aramco F1 Team", "Silverstone, United Kingdom", "Mike Krack", "Dan Fallows", "AMR24", "Mercedes", "0", "1", "3","Fernando Alonso", "Lance Stroll", "Aston Martin", "2024"},
-//                {"Stake F1 Team Kick Sauber", "Hinwil, Switzerland", "Alessandro Alunni Bravi", "James Key", "C44", "Ferrari", "0", "1", "7", "Valtteri Bottas", "Zhou Guanyu", "Sauber", "2024"},
-//                {"Visa Cash App RB Formula One Team", "Faenza, Italy", "Laurent Mekies", "Jody Egginton", "VCARB 01", "Honda RBPT", "0", "1", "4", "Yuki Tsunoda", "Liam Lawson", "RB F1 Team", "2024"},
-//                {"MoneyGram Haas F1 Team", "Kannapolis, USA", "Ayao Komatsu", "Andrea De Zordo", "VF-24", "Ferrari", "0", "1", "2", "Nico Hulkenberg", "Kevin Magnussen", "Haas F1 Team", "2024"},
-//                {"Williams Racing", "Grove, United Kingdom", "James Vowles", "Pat Fry", "FW46", "Mercedes", "9", "128", "133", "Alexander Albon", "Franco Colapinto", "Williams", "2024"}
-//        };
+//        for (int i = 0; i < drivers.length; i++) {
+//            Driver driver = new Driver(drivers[i][0], drivers[i][1], drivers[i][2], Integer.parseInt(drivers[i][3]), Float.parseFloat(drivers[i][4]), Integer.parseInt(drivers[i][5]), Integer.parseInt(drivers[i][6]), drivers[i][7], drivers[i][8], drivers[i][9], Integer.parseInt(drivers[i][10]));
 //
-//        for (int i = 0; i < teams.length; i++) {
-//            Team team = new Team();
-//            team.setFull_team_name(teams[i][0]);
-//            team.setBase(teams[i][1]);
-//            team.setTeam_chief(teams[i][2]);
-//            team.setTechnical_chief(teams[i][3]);
-//            team.setChassis(teams[i][4]);
-//            team.setPower_unit(teams[i][5]);
-//            team.setWorld_championships(teams[i][6]);
-//            team.setPole_position_count(Integer.parseInt(teams[i][7]));
-//            team.setFastest_lap_count(Integer.parseInt(teams[i][8]));
-//            team.setFirst_driver(teams[i][9]);
-//            team.setSecond_driver(teams[i][10]);
-//            team.setRef_name(teams[i][11]);
-//            team.setYear_info(Integer.parseInt(teams[i][12]));
-//
-//            String teamId = database.push().getKey(); // Generates a unique key
-//            database.child(teamId).setValue(team)
+//            String driverId = database.push().getKey(); // Generates a unique key
+//            database.child(driverId).setValue(driver)
 //                    .addOnSuccessListener(aVoid -> {
 //                        // Data saved successfully
 //                    })

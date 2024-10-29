@@ -70,7 +70,7 @@ public class HomePageFragment extends Fragment {
         });
 
         driverStandingSeeAllButton.setOnClickListener(v -> {
-//            replaceFragment(new NewFragment());
+            replaceFragment(new DriversStandingsFragment());
         });
 
         return view;

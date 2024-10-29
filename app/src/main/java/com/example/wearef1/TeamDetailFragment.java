@@ -39,7 +39,7 @@ public class TeamDetailFragment extends Fragment {
 
     private String team_name;
     private String info_year;
-private TextView teamNameView;
+    private TextView teamNameView;
     private TextView baseView;
     private TextView teamPrincipalView;
     private TextView technicalChiefView;

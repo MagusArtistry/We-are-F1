@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    tools:context=".TeamDetailFragment">
+
+    <TextView
+        android:id="@+id/driver_detail_page_heading_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textStyle="bold|italic"
+        android:textSize="26sp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/driver_detail_page_driver_pic"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:padding="0dp"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_heading_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Base -->
+    <TextView
+        android:id="@+id/driver_detail_page_country"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Country"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/driver_detail_page_country_value"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_driver_pic"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/driver_detail_page_country_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/driver_detail_page_country"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_driver_pic" />
+
+    <!-- Principal -->
+    <TextView
+        android:id="@+id/driver_detail_page_dob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Date of Birth"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/driver_detail_page_dob_value"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_country_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/driver_detail_page_dob_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/driver_detail_page_dob"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_country_value" />
+
+    <!-- Principal -->
+    <TextView
+        android:id="@+id/driver_detail_page_podiums"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Podiums"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/driver_detail_page_podiums_value"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_dob_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/driver_detail_page_podiums_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/driver_detail_page_podiums"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_dob_value" />
+
+    <!-- Chassis -->
+    <TextView
+        android:id="@+id/driver_detail_page_total_points"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Total Points"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/driver_detail_page_total_points_value"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_podiums_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/driver_detail_page_total_points_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/driver_detail_page_total_points"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_podiums_value" />
+
+    <!-- Power Unit -->
+    <TextView
+        android:id="@+id/driver_detail_page_races_entered"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Races Entered"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/driver_detail_page_races_entered_value"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_total_points_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/driver_detail_page_races_entered_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/driver_detail_page_races_entered"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_total_points_value" />
+
+    <!-- World Championships -->
+    <TextView
+        android:id="@+id/driver_detail_page_driver_wc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="World Champs"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/driver_detail_page_driver_wc_value"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_races_entered_value"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/driver_detail_page_driver_wc_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/driver_detail_page_driver_wc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_races_entered_value" />
+
+    <!-- Pole Positions Count -->
+    <TextView
+        android:id="@+id/driver_detail_page_pole_nationality"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nationality"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/driver_detail_page_pole_nationality_value"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_driver_wc"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/driver_detail_page_pole_nationality_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@id/driver_detail_page_pole_nationality"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_driver_wc_value" />
+
+    <!-- Drivers Section Header -->
+    <TextView
+        android:id="@+id/driver_detail_page_team_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team Name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_pole_nationality_value" />
+
+    <ImageView
+        android:id="@+id/driver_detail_page_car_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_team_heading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/driver_page_team_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Show Team"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_detail_page_car_pic"
+        android:textStyle="bold"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
