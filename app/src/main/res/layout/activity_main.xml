@@ -41,6 +41,7 @@
 
         <!-- Add ScrollView around FrameLayout to enable scrolling -->
         <ScrollView
+            android:id="@+id/main_activity_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fillViewport="true">

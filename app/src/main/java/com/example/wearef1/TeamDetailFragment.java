@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -79,6 +80,16 @@ public class TeamDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_team_detail, container, false);
 
+        ScrollView scrollView = getActivity().findViewById(R.id.main_activity_scroll_view);
+        if (scrollView != null) {
+            scrollView.post(new Runnable() {
+                @Override
+                public void run() {
+                    scrollView.scrollTo(0, 0);
+                }
+            });
+        }
+
         teamNameView = view.findViewById(R.id.team_detail_page_heading_name);
         baseView = view.findViewById(R.id.team_detail_page_team_base_value);
         teamPrincipalView = view.findViewById(R.id.team_detail_page_team_principal_value);
@@ -97,7 +108,7 @@ public class TeamDetailFragment extends Fragment {
         driver2_button = view.findViewById(R.id.team_detail_page_driver2_click);
 
         driver1_button.setOnClickListener(v -> {
-            DriverDetailFragment fragment = DriverDetailFragment.newInstance(selectedTeam.getFirst_driver().split(" ")[1], info_year);
+            DriverDetailFragment fragment = DriverDetailFragment.newInstance(selectedTeam.getFirst_driver(), info_year);
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.main_fragment_container, fragment)
@@ -105,8 +116,8 @@ public class TeamDetailFragment extends Fragment {
                     .commit();
         });
 
-        driver1_button.setOnClickListener(v -> {
-            DriverDetailFragment fragment = DriverDetailFragment.newInstance(selectedTeam.getSecond_driver().split(" ")[1], info_year);
+        driver2_button.setOnClickListener(v -> {
+            DriverDetailFragment fragment = DriverDetailFragment.newInstance(selectedTeam.getSecond_driver(), info_year);
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.main_fragment_container, fragment)

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -75,6 +76,16 @@ public class DriverDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_driver_detail, container, false);
 
+        ScrollView scrollView = getActivity().findViewById(R.id.main_activity_scroll_view);
+        if (scrollView != null) {
+            scrollView.post(new Runnable() {
+                @Override
+                public void run() {
+                    scrollView.scrollTo(0, 0);
+                }
+            });
+        }
+
         country_view = view.findViewById(R.id.driver_detail_page_country_value);
         dob_view = view.findViewById(R.id.driver_detail_page_dob_value);
         podiums_view = view.findViewById(R.id.driver_detail_page_podiums_value);
@@ -95,7 +106,7 @@ public class DriverDetailFragment extends Fragment {
 
     private void getDriverData(){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("drivers");
-
+        Log.e("getDriverData: ", driver_name);
         Query query = databaseReference.orderByChild("ref_name").equalTo(driver_name.split(" ")[1].toLowerCase(Locale.ROOT));
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
