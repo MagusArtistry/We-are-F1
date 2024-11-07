@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,11 +28,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.Locale;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TeamDetailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class TeamDetailFragment extends Fragment {
 
     private static final String ARG_TEAM_NAME = "Mercedes";
@@ -55,6 +52,8 @@ public class TeamDetailFragment extends Fragment {
     private ImageView car_image_view;
     private Team selectedTeam;
     private FirebaseStorage storage;
+    private Button driver1_button;
+    private Button driver2_button;
     public TeamDetailFragment() {
     }
     public static TeamDetailFragment newInstance(String param1, String param2) {
@@ -94,6 +93,26 @@ public class TeamDetailFragment extends Fragment {
         driver1_image_view = view.findViewById(R.id.team_detail_page_driver1_pic);
         driver2_image_view = view.findViewById(R.id.team_detail_page_driver2_pic);
         car_image_view = view.findViewById(R.id.team_detail_page_car_pic);
+        driver1_button = view.findViewById(R.id.team_detail_page_driver1_click);
+        driver2_button = view.findViewById(R.id.team_detail_page_driver2_click);
+
+        driver1_button.setOnClickListener(v -> {
+            DriverDetailFragment fragment = DriverDetailFragment.newInstance(selectedTeam.getFirst_driver().split(" ")[1], info_year);
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+        driver1_button.setOnClickListener(v -> {
+            DriverDetailFragment fragment = DriverDetailFragment.newInstance(selectedTeam.getSecond_driver().split(" ")[1], info_year);
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
 
         storage = FirebaseStorage.getInstance();
         getTeamData();

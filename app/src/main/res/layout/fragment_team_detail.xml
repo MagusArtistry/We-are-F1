@@ -336,7 +336,7 @@
             android:layout_weight="1"
             android:contentDescription="Driver 1"
             android:src="@drawable/blank_drawable"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:padding="0dp"
             android:layout_margin="0dp"/>
@@ -348,7 +348,7 @@
             android:layout_weight="1"
             android:contentDescription="Driver 2"
             android:src="@drawable/blank_drawable"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:padding="0dp"
             android:layout_margin="0dp"/>
@@ -366,7 +366,7 @@
         app:layout_constraintTop_toBottomOf="@id/team_detail_page_drivers_images">
 
         <Button
-            android:id="@+id/driver1_click"
+            android:id="@+id/team_detail_page_driver1_click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -379,7 +379,7 @@
             android:textStyle="bold"/>
 
         <Button
-            android:id="@+id/driver2_click"
+            android:id="@+id/team_detail_page_driver2_click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
