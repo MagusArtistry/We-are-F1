@@ -91,7 +91,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         animatorSet.start();
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         }, SPLASH_SCREEN_TIMEOUT);

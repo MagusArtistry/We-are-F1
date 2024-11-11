@@ -1,15 +1,20 @@
 package com.example.wearef1;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
@@ -17,12 +22,25 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class HomePageFragment extends Fragment {
 
@@ -34,6 +52,15 @@ public class HomePageFragment extends Fragment {
     private List<DriversStanding> top5DriversStandings = new ArrayList<>();
     private Button constructorStandingSeeAllButton;
     private Button driverStandingSeeAllButton;
+    Driver favoriteDriver;
+    private FirebaseStorage storage;
+    private ImageView driver_iv;
+    private TextView driver_profile_main_name_tv;
+    private TextView driver_profile_main_country_tv;
+    private TextView driver_profile_main_team_name_tv;
+    private TextView driver_profile_main_podiums_tv;
+    private TextView driver_profile_main_wc_tv;
+    private Button driver_profile_main_seeMore_btn;
 
     @Nullable
     @Override
@@ -41,6 +68,27 @@ public class HomePageFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home_page, container, false);
+
+        driver_iv = view.findViewById(R.id.driver_profile_main_pic);
+        driver_profile_main_name_tv = view.findViewById(R.id.driver_profile_main_name);
+        driver_profile_main_country_tv = view.findViewById(R.id.driver_profile_main_country);
+        driver_profile_main_team_name_tv = view.findViewById(R.id.driver_profile_main_team_name);
+        driver_profile_main_podiums_tv = view.findViewById(R.id.driver_profile_main_podiums);
+        driver_profile_main_wc_tv = view.findViewById(R.id.driver_profile_main_wc);
+        driver_profile_main_seeMore_btn = view.findViewById(R.id.driver_profile_main_seeMore_button);
+
+        driver_profile_main_seeMore_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DriverDetailFragment detailsFragment = DriverDetailFragment.newInstance(favoriteDriver.getName(), Integer.toString(favoriteDriver.getYear_info()));
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main_fragment_container, detailsFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         // Constructor RecyclerView setup
         constructorRecyclerView = view.findViewById(R.id.constructors_standing_recycler_view);
@@ -73,7 +121,75 @@ public class HomePageFragment extends Fragment {
             replaceFragment(new DriversStandingsFragment());
         });
 
+        storage = FirebaseStorage.getInstance();
+        User user = UserPreferenceManager.getUser(getContext());
+
+        String driverId = "-OAMypPHCPxp60MeD4QO";
+        if(user != null) {
+            driverId = user.getFavoriteDriverId();
+        }
+        getDriverById(driverId);
+
         return view;
+    }
+
+    private void getDriverById(String driverId) {
+        // Reference to the "drivers" table
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("drivers").child(driverId);
+
+        // Use get() method to fetch the data once
+        databaseReference.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DataSnapshot dataSnapshot = task.getResult();
+                if (dataSnapshot.exists()) {
+                    // Convert the DataSnapshot to a Driver object
+                    Driver driver = dataSnapshot.getValue(Driver.class);
+                    if (driver != null) {
+                        // Driver object retrieved successfully
+                        favoriteDriver = driver;
+                        updateUI();
+                        loadImageFromFirebase(); // Update the UI after retrieving the driver data
+                    } else {
+                        Log.e("FirebaseData", "Failed to convert data to Driver object");
+                    }
+                } else {
+                    Log.e("FirebaseData", "Driver not found with ID: " + driverId);
+                }
+            } else {
+                // Handle task failure (e.g., network issues, permission issues)
+                Exception exception = task.getException();
+                if (exception != null) {
+                    Log.e("FirebaseData", "Error: " + exception.getMessage());
+                }
+            }
+        });
+    }
+
+    private void updateUI(){
+        driver_profile_main_name_tv.setText(favoriteDriver.getName());
+        driver_profile_main_country_tv.setText(favoriteDriver.getCountry());
+        driver_profile_main_team_name_tv.setText(favoriteDriver.getTeam_name());
+        driver_profile_main_podiums_tv.setText(Integer.toString(favoriteDriver.getPodiums()));
+        driver_profile_main_wc_tv.setText(Integer.toString(favoriteDriver.getWorld_championships_count()));
+    }
+    private void loadImageFromFirebase() {
+        // Create a reference to the file location in Firebase Storage
+        String image_file_name = "driver_pic/" + favoriteDriver.getRef_name().toLowerCase(Locale.ROOT) + "_" + "2024" + ".png";
+        StorageReference storageRef = storage.getReference().child(image_file_name);
+
+        storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(getContext())
+                        .load(uri)
+                        .into(driver_iv);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("FirebaseStorage", "Failed to load image", e);
+            }
+        });
     }
 
     private void fetchConstructorStandings() {
