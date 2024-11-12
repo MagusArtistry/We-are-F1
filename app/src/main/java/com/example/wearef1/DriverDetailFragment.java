@@ -5,11 +5,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -34,6 +37,7 @@ public class DriverDetailFragment extends Fragment {
     private static final String ARG_DRIVER_NAME = "leclerc";
     private static final String ARG_INFO_YEAR = "2024";
     private String driver_name;
+    private String team_ref;
     private String info_year;
 
     private TextView country_view;
@@ -49,6 +53,7 @@ public class DriverDetailFragment extends Fragment {
     private ImageView car_image_view;
     private Driver selectedDriver;
     private FirebaseStorage storage;
+    private Button driver_page_team_click;
 
     public DriverDetailFragment() {
     }
@@ -97,6 +102,7 @@ public class DriverDetailFragment extends Fragment {
         team_name_view = view.findViewById(R.id.driver_detail_page_team_heading);
         driver_image_view = view.findViewById(R.id.driver_detail_page_driver_pic);
         car_image_view = view.findViewById(R.id.driver_detail_page_car_pic);
+        driver_page_team_click = view.findViewById(R.id.driver_page_team_click);
 
         storage = FirebaseStorage.getInstance();
         getDriverData();
@@ -130,6 +136,45 @@ public class DriverDetailFragment extends Fragment {
         });
     }
 
+    private void getTeamRef(){
+
+        String teamName = selectedDriver.getTeam_name();
+        switch (teamName){
+            case "Mercedes-AMG PETRONAS F1 Team":
+                team_ref = "mercedes";
+                break;
+            case "McLaren Formula 1 Team":
+                team_ref = "mclaren";
+                break;
+            case "Oracle Red Bull Racing":
+                team_ref = "red bull";
+                break;
+            case "Scuderia Ferrari":
+                team_ref = "ferrari";
+                break;
+            case "BWT Alpine F1 Team":
+                team_ref = "alpine f1 team";
+                break;
+            case "Aston Martin Aramco F1 Team":
+                team_ref = "aston martin";
+                break;
+            case "Stake F1 Team Kick Sauber":
+                team_ref = "kick sauber";
+                break;
+            case "Visa Cash App RB Formula One Team":
+                team_ref = "rb f1 team";
+                break;
+            case "MoneyGram Haas F1 Team":
+                team_ref = "haas f1 team";
+                break;
+            case "Williams Racing":
+                team_ref = "williams";
+                break;
+            default:
+                team_ref = "mercedes";
+        }
+    }
+
     private void updateUI() {
         if (selectedDriver != null) {
             // Set UI components
@@ -143,31 +188,47 @@ public class DriverDetailFragment extends Fragment {
             nationality_view.setText(selectedDriver.getNationality());
             team_name_view.setText(selectedDriver.getTeam_name());
 
-            // Load image from Firebase
-//            loadCarImageFromFirebase();
+            getTeamRef();
             loadDriverImageFromFirebase();
+
+            // Load image from Firebase
+            loadCarImageFromFirebase();
+            loadDriverImageFromFirebase();
+
+            driver_page_team_click.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TeamDetailFragment fragment = TeamDetailFragment.newInstance(team_ref, info_year);
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.main_fragment_container, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+            });
         }
     }
 
-//    private void loadCarImageFromFirebase() {
-//        // Create a reference to the file location in Firebase Storage
-//        String image_file_name = "car_pic/" + team_name.replace(' ', '_') + "_" + info_year + ".png";
-//        StorageReference storageRef = storage.getReference().child(image_file_name);
-//
-//        storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                Glide.with(getContext())
-//                        .load(uri)
-//                        .into(car_image_view);
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Log.e("FirebaseStorage", "Failed to load image", e);
-//            }
-//        });
-//    }
+
+    private void loadCarImageFromFirebase() {
+        // Create a reference to the file location in Firebase Storage
+        String image_file_name = "car_pic/" + team_ref.replace(' ', '_') + "_" + info_year + ".png";
+        StorageReference storageRef = storage.getReference().child(image_file_name);
+
+        storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(getContext())
+                        .load(uri)
+                        .into(car_image_view);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("FirebaseStorage", "Failed to load image", e);
+            }
+        });
+    }
 
     private void loadDriverImageFromFirebase() {
         // Create a reference to the file location in Firebase Storage
