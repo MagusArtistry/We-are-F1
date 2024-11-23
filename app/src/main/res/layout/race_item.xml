@@ -2,29 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center"
+    android:orientation="vertical"
     android:padding="10dp"
     android:background="@drawable/rounded_list_item_background"
     android:layout_marginBottom="8dp">
 
-    <TextView
-        android:id="@+id/raceName"
-        android:layout_width="0dp"
+    <!-- Horizontal layout for TextView and ImageView -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
-        android:text="Race Name"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:gravity="center"
-        android:textStyle="bold" />
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/raceIcon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_weight="1"
-        android:src="@drawable/abu_dhabi_2024"
-        android:layout_marginEnd="8dp" />
+        <TextView
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:id="@+id/raceName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Race Name"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/raceIcon"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:src="@drawable/abu_dhabi_2024"
+            android:layout_marginEnd="8dp" />
+    </LinearLayout>
+
+    <!-- FrameLayout below the TextView and ImageView -->
+    <FrameLayout
+        android:id="@+id/race_small_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

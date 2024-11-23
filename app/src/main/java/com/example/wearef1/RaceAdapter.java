@@ -1,53 +1,61 @@
 package com.example.wearef1;
 
-import android.util.Log;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.annotation.Nullable;
 import java.util.List;
 
-public class RaceAdapter extends RecyclerView.Adapter<RaceAdapter.RaceViewHolder> {
+public class RaceAdapter extends ArrayAdapter<String> {
 
     private final List<String> raceList;
+    private final LayoutInflater inflater;
 
-    public RaceAdapter(List<String> raceList) {
+    public RaceAdapter(@NonNull Context context, List<String> raceList) {
+        super(context, R.layout.race_item, raceList);
         this.raceList = raceList;
+        this.inflater = LayoutInflater.from(context);
     }
 
     @NonNull
     @Override
-    public RaceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.race_item, parent, false);
-        return new RaceViewHolder(view);
-    }
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        ViewHolder holder;
 
-    @Override
-    public void onBindViewHolder(@NonNull RaceViewHolder holder, int position) {
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.race_item, parent, false);
+            holder = new ViewHolder();
+            holder.raceName = convertView.findViewById(R.id.raceName);
+            holder.raceIcon = convertView.findViewById(R.id.raceIcon);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        // Set the race name
         String race = raceList.get(position);
         holder.raceName.setText(race);
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        // Optionally set an image or other properties
+        // holder.raceIcon.setImageResource(R.drawable.some_icon); // Set an icon if needed
+
+        return convertView;
     }
 
-    @Override
-    public int getItemCount() {
-        Log.d("RaceAdapter", "Item count: " + (raceList != null ? raceList.size() : 0));
-        return raceList != null ? raceList.size() : 0;
-    }
-
-
-    public class RaceViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder {
         TextView raceName;
         ImageView raceIcon;
-
-        RaceViewHolder(@NonNull View itemView) {
-            super(itemView);
-            raceName = itemView.findViewById(R.id.raceName);
-            raceIcon = itemView.findViewById(R.id.raceIcon);
-        }
     }
 }
