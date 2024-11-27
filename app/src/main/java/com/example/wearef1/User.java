@@ -4,6 +4,7 @@ public class User {
     private String email;
     private String username;
     private String favoriteDriverId;
+    private String favoriteTeamId;
     public User() {
     }
 
@@ -13,10 +14,11 @@ public class User {
         this.favoriteDriverId = "";
     }
 
-    public User(String email, String username, String favoriteDriverId){
+    public User(String email, String username, String favoriteDriverId, String favouriteTeamId){
         this.email = email;
         this.username = username;
         this.favoriteDriverId = favoriteDriverId;
+        this.favoriteTeamId = favouriteTeamId;
     }
 
     public String getEmail() {
@@ -40,5 +42,13 @@ public class User {
     }
     public void setFavoriteDriverId(String favoriteDriverId) {
         this.favoriteDriverId = favoriteDriverId;
+    }
+
+    public String getFavoriteTeamId() {
+        return favoriteTeamId;
+    }
+
+    public void setFavoriteTeamId(String favoriteTeamId) {
+        this.favoriteTeamId = favoriteTeamId;
     }
 }

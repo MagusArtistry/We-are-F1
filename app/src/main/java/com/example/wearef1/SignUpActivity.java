@@ -162,7 +162,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void saveUserData(String userId, String email, String username) {
         // Save user data to the database after checks
-        User newUser = new User(email, username);
+        User newUser = new User(email, username, "-", "-");
         mDatabase.child("users").child(userId).setValue(newUser)
                 .addOnCompleteListener(task1 -> {
                     if (task1.isSuccessful()) {

@@ -33,4 +33,27 @@ public class UserPreferenceManager {
 
         return null; // Return null if no user is found
     }
+
+    public static void updateUser(Context context, User updatedUser) {
+        // Get the current user from SharedPreferences
+        User currentUser = getUser(context);
+
+        if (currentUser != null) {
+            // Update fields in the current user object
+            if (updatedUser.getFavoriteDriverId() != null) {
+                currentUser.setFavoriteDriverId(updatedUser.getFavoriteDriverId());
+            }
+            if (updatedUser.getFavoriteTeamId() != null) {
+                currentUser.setFavoriteTeamId(updatedUser.getFavoriteTeamId());
+            }
+            // Add any other fields you want to update...
+
+            // Save the updated user back to SharedPreferences
+            saveUser(context, currentUser);
+        } else {
+            // If no user is found, save the new user as the current user
+            saveUser(context, updatedUser);
+        }
+    }
+
 }

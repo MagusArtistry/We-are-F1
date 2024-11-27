@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                                         if (user != null) {
                                             // Save user object to SharedPreferences
                                             UserPreferenceManager.saveUser(LoginActivity.this, user);
+                                            String userID = dataSnapshot.getKey();
 
                                             // Get the user's ID token
                                             firebaseUser.getIdToken(true).addOnCompleteListener(tokenTask -> {
@@ -99,14 +100,21 @@ public class LoginActivity extends AppCompatActivity {
                                                     // Store the token in SharedPreferences
                                                     getSharedPreferences("MyPrefs", MODE_PRIVATE).edit()
                                                             .putString("token", idToken)
+                                                            .putString("userID", userID)
                                                             .apply();
                                                 }
                                             });
 
-                                            // Navigate to the MainActivity
-                                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                            startActivity(intent);
-                                            finish();
+                                            if(user.getFavoriteTeamId().equals("-") || user.getFavoriteDriverId().equals("-")) {
+                                                Intent intent = new Intent(LoginActivity.this, FavouriteSelectorActivity.class);
+                                                startActivity(intent);
+                                                finish();
+                                            }
+                                            else{
+                                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                                startActivity(intent);
+                                                finish();
+                                            }
                                         } else {
                                             Toast.makeText(LoginActivity.this, "User data is incomplete.", Toast.LENGTH_SHORT).show();
                                         }
