@@ -29,4 +29,8 @@ public class Comment {
     public void setTimeStamp(long timeStamo){
         this.timeStamp = timeStamp;
     }
+
+    public void setContent(String content){
+        this.content = content;
+    }
 }
