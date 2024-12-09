@@ -168,9 +168,9 @@ public class HomePageFragment extends Fragment {
     private void updateUI(){
         driver_profile_main_name_tv.setText(favoriteDriver.getName());
         driver_profile_main_country_tv.setText(favoriteDriver.getCountry());
-        driver_profile_main_team_name_tv.setText(favoriteDriver.getTeam_name());
-        driver_profile_main_podiums_tv.setText(Integer.toString(favoriteDriver.getPodiums()));
-        driver_profile_main_wc_tv.setText(Integer.toString(favoriteDriver.getWorld_championships_count()));
+        driver_profile_main_team_name_tv.setText(favoriteDriver.getTeam_name().split(" ")[0]);
+        driver_profile_main_podiums_tv.setText(Integer.toString(favoriteDriver.getPodiums()) + " Podiums");
+        driver_profile_main_wc_tv.setText(Integer.toString(favoriteDriver.getWorld_championships_count()) + " WCs");
     }
     private void loadImageFromFirebase() {
         // Create a reference to the file location in Firebase Storage

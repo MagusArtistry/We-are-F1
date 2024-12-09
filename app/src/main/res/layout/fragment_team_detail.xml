@@ -11,7 +11,7 @@
         android:id="@+id/team_detail_page_heading_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/red"
+        android:textColor="@color/gold"
         android:textStyle="bold|italic"
         android:textSize="26sp"
         android:text=""
@@ -56,7 +56,7 @@
         android:textStyle="bold|italic"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
-        android:textColor="@color/red"
+        android:textColor="@color/silver"
         app:layout_constraintStart_toEndOf="@id/team_detail_page_team_base"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/team_detail_page_car_pic" />
@@ -86,7 +86,7 @@
         android:textStyle="bold|italic"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
-        android:textColor="@color/red"
+        android:textColor="@color/silver"
         app:layout_constraintStart_toEndOf="@id/team_detail_page_team_principal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_base_value" />
@@ -116,7 +116,7 @@
         android:textStyle="bold|italic"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
-        android:textColor="@color/red"
+        android:textColor="@color/silver"
         app:layout_constraintStart_toEndOf="@id/team_detail_page_team_technical_chief"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_principal_value" />
@@ -146,7 +146,7 @@
         android:textStyle="bold|italic"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
-        android:textColor="@color/red"
+        android:textColor="@color/silver"
         app:layout_constraintStart_toEndOf="@id/team_detail_page_team_chassis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_technical_chief_value" />
@@ -176,7 +176,7 @@
         android:textStyle="bold|italic"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
-        android:textColor="@color/red"
+        android:textColor="@color/silver"
         app:layout_constraintStart_toEndOf="@id/team_detail_page_team_power_unit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_chassis_value" />
@@ -206,7 +206,7 @@
         android:textStyle="bold|italic"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
-        android:textColor="@color/red"
+        android:textColor="@color/silver"
         app:layout_constraintStart_toEndOf="@id/team_detail_page_team_wc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_power_unit_value" />
@@ -236,7 +236,7 @@
         android:textStyle="bold|italic"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
-        android:textColor="@color/red"
+        android:textColor="@color/silver"
         app:layout_constraintStart_toEndOf="@id/team_detail_page_pole_positions_count"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/team_detail_page_team_wc_value" />
@@ -266,7 +266,7 @@
         android:textStyle="bold|italic"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
-        android:textColor="@color/red"
+        android:textColor="@color/silver"
         app:layout_constraintStart_toEndOf="@id/team_detail_page_fastest_laps_count"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/team_detail_page_pole_positions_count_value" />
@@ -304,7 +304,7 @@
             android:text=""
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="@color/red"
+            android:textColor="@color/gold"
             android:gravity="center"/>
 
         <TextView
@@ -315,7 +315,7 @@
             android:text=""
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="@color/red"
+            android:textColor="@color/gold"
             android:gravity="center"/>
     </LinearLayout>
 
