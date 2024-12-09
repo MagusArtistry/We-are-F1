@@ -25,4 +25,8 @@ public class Comment {
     public long getTimestamp() {
         return timestamp;
     }
+
+    public void setTimeStamp(long timeStamo){
+        this.timeStamp = timeStamp;
+    }
 }
