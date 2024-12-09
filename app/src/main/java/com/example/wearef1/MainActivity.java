@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
                 CalenderFragment fragment = new CalenderFragment();
                 fragmentTransaction.replace(R.id.main_fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
                 HomePageFragment fragment = new HomePageFragment();
                 fragmentTransaction.replace(R.id.main_fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
@@ -62,12 +64,13 @@ public class MainActivity extends AppCompatActivity {
         communityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//                HomePageFragment fragment = new HomePageFragment();
-//                fragmentTransaction.replace(R.id.main_fragment_container, fragment);
-//                fragmentTransaction.commit();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                CommunityMainFragment fragment = new CommunityMainFragment();
+                fragmentTransaction.replace(R.id.main_fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
@@ -76,12 +79,13 @@ public class MainActivity extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//                HomePageFragment fragment = new HomePageFragment();
-//                fragmentTransaction.replace(R.id.main_fragment_container, fragment);
-//                fragmentTransaction.commit();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                ProfileFragment fragment = new ProfileFragment();
+                fragmentTransaction.replace(R.id.main_fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
@@ -90,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
         HomePageFragment fragment = new HomePageFragment();
         fragmentTransaction.replace(R.id.main_fragment_container, fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
 

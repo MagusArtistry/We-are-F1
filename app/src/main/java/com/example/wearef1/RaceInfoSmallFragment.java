@@ -3,6 +3,7 @@ package com.example.wearef1;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,7 +96,14 @@ public class RaceInfoSmallFragment extends Fragment {
         raceLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Race Number: ", raceNumber);
+                Log.d("Race Year: ", raceYear);
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager(); // Use parent activity's FragmentManager
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+                RaceInfoPageFragment fragment = RaceInfoPageFragment.newInstance(raceNumber, raceYear, "Race");
+                fragmentTransaction.replace(R.id.main_fragment_container, fragment); // Ensure main_fragment_container exists in the activity
+                fragmentTransaction.commit();
             }
         });
 
@@ -108,7 +116,6 @@ public class RaceInfoSmallFragment extends Fragment {
 
                 RaceInfoPageFragment fragment = RaceInfoPageFragment.newInstance(raceNumber, raceYear, "Qualifying");
                 fragmentTransaction.replace(R.id.main_fragment_container, fragment); // Ensure main_fragment_container exists in the activity
-                fragmentTransaction.addToBackStack(null); // Optional: allows navigating back
                 fragmentTransaction.commit();
             }
         });
@@ -185,19 +192,19 @@ public class RaceInfoSmallFragment extends Fragment {
                         raceDate.setText(raceCorrectDateTime.split(" ")[0].split("-")[2]);
                         raceMonth.setText(getMonth(Integer.parseInt(raceCorrectDateTime.split(" ")[0].split("-")[1])));
 
-                        qualifyingTitle.setText("Race | " + qualifyingCorrectDateTime.split(" ")[1]);
+                        qualifyingTitle.setText("Qualifying | " + qualifyingCorrectDateTime.split(" ")[1]);
                         qualifyingDate.setText(qualifyingCorrectDateTime.split(" ")[0].split("-")[2]);
                         qualifyingMonth.setText(getMonth(Integer.parseInt(qualifyingCorrectDateTime.split(" ")[0].split("-")[1])));
 
-                        practice3Title.setText("Race | " + practice3CorrectDateTime.split(" ")[1]);
+                        practice3Title.setText("Practice 3 | " + practice3CorrectDateTime.split(" ")[1]);
                         practice3Date.setText(practice3CorrectDateTime.split(" ")[0].split("-")[2]);
                         practice3Month.setText(getMonth(Integer.parseInt(practice3CorrectDateTime.split(" ")[0].split("-")[1])));
 
-                        practice2Title.setText("Race | " + practice2CorrectDateTime.split(" ")[1]);
+                        practice2Title.setText("Practice 2 | " + practice2CorrectDateTime.split(" ")[1]);
                         practice2Date.setText(practice2CorrectDateTime.split(" ")[0].split("-")[2]);
                         practice2Month.setText(getMonth(Integer.parseInt(practice2CorrectDateTime.split(" ")[0].split("-")[1])));
 
-                        practice1Title.setText("Race | " + practice1CorrectDateTime.split(" ")[1]);
+                        practice1Title.setText("Practice 1 | " + practice1CorrectDateTime.split(" ")[1]);
                         practice1Date.setText(practice1CorrectDateTime.split(" ")[0].split("-")[2]);
                         practice1Month.setText(getMonth(Integer.parseInt(practice1CorrectDateTime.split(" ")[0].split("-")[1])));
                     });

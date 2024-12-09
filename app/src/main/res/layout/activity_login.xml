@@ -70,6 +70,18 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="32dp" />
 
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:textColor="@color/red"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/not_a_member_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp" />
+
     <Button
         android:id="@+id/login_button_login"
         android:layout_width="wrap_content"
@@ -79,7 +91,7 @@
         android:backgroundTint="@color/red"
         android:textStyle="bold"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/not_a_member_login"
+        app:layout_constraintTop_toBottomOf="@id/forgot_password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp" />

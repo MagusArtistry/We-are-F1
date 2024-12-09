@@ -1,10 +1,14 @@
 package com.example.wearef1;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -233,4 +237,22 @@ public class TeamDetailFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        // Override the back press behavior in the fragment
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle back press here and navigate to ConstructorStandingsFragment
+                ConstructorsStandingsFragment constructorStandingsFragment = new ConstructorsStandingsFragment();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_fragment_container, constructorStandingsFragment);
+                transaction.commit();
+            }
+        });
+    }
+
 }

@@ -228,6 +228,8 @@ public class CalenderFragment extends Fragment {
             // Add a new fragment
             String raceName = raceNames.get(position);
             int raceNumber = raceHashMap.get(raceName);
+            Log.d("Race Number: ", String.valueOf(raceNumber));
+            Log.d("Race Number: ", selectedYear);
             RaceInfoSmallFragment fragmentToDisplay = RaceInfoSmallFragment.newInstance(String.valueOf(raceNumber), selectedYear);
             fragmentManager.beginTransaction()
                     .replace(fragmentContainer.getId(), fragmentToDisplay)
@@ -269,7 +271,7 @@ public class CalenderFragment extends Fragment {
                         String date = race.getAsJsonObject("FirstPractice").get("date").getAsString();
                         raceList.add(new RaceInfo(count, raceName, date));
                         raceHashMap.put(raceName, count);
-
+                        count++;
                     }
                 }
             } catch (IOException e) {

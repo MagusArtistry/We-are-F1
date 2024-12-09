@@ -82,7 +82,6 @@ public class ConstructorStandingPageSmallProfileFragment extends Fragment {
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.main_fragment_container, detailsFragment);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         });
 

@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailField, passwordField;
     private Button loginButton;
     private TextView notMemberButton;
+    private TextView forgotPasswordButton;
 
     private FirebaseAuth mAuth;
 
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordField = findViewById(R.id.password_field_login);
         loginButton = findViewById(R.id.login_button_login);
         notMemberButton = findViewById(R.id.not_a_member_login);
+        forgotPasswordButton = findViewById(R.id.forgot_password);
 
         loginButton.setOnClickListener(v -> {
             String email = emailField.getText().toString().trim();
@@ -67,6 +69,17 @@ public class LoginActivity extends AppCompatActivity {
              Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
              startActivity(intent);
             finish();
+        });
+
+        forgotPasswordButton.setOnClickListener(v -> {
+            String email = emailField.getText().toString().trim();
+            if(email.contains("@")){
+                Toast.makeText(this, "Password reset email sent.", Toast.LENGTH_SHORT).show();
+                sendPasswordResetEmail(email);
+            }
+            else if(email.isEmpty()){
+                Toast.makeText(this, "Please enter your email.", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -105,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 }
                                             });
 
-                                            if(user.getFavoriteTeamId().equals("-") || user.getFavoriteDriverId().equals("-")) {
+                                            if(user.getFavoriteTeamId().equals("-") || user.getFavoriteTeamId().equals(" ") || user.getFavoriteDriverId().equals("-") || user.getFavoriteDriverId().equals(" ")) {
                                                 Intent intent = new Intent(LoginActivity.this, FavouriteSelectorActivity.class);
                                                 startActivity(intent);
                                                 finish();
@@ -136,5 +149,15 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    private void sendPasswordResetEmail(String email) {
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        // Password reset email sent
+                    } else {
+                        // Handle errors (e.g., invalid email)
+                        String errorMessage = task.getException() != null ? task.getException().getMessage() : "Error sending reset email.";                    }
+                });
+    }
 
 }

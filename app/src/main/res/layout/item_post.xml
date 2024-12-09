@@ -1,0 +1,64 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@android:color/black"
+    android:layout_marginBottom="8dp"
+    android:elevation="4dp">
+
+    <TextView
+        android:id="@+id/tvAuthor_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvContent_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/tvTimestamp_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="4dp" />
+
+    <!-- Comment Section -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Add Comment Input -->
+    <EditText
+        android:id="@+id/etCommentContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write a comment..."
+        android:padding="10dp"
+        android:background="@drawable/custom_field_underline_transparent"
+        android:textCursorDrawable="@drawable/custom_cursor"
+        android:textColorHint="@color/red"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/red"/>
+
+    <Button
+        android:id="@+id/btnSubmitComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comment"
+        android:layout_gravity="end"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:backgroundTint="@color/red" />
+</LinearLayout>

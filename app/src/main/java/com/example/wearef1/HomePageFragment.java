@@ -193,6 +193,11 @@ public class HomePageFragment extends Fragment {
     }
 
     private void fetchConstructorStandings() {
+//        top5ConstructorStandings.clear();
+        if (!top5ConstructorStandings.isEmpty()) {
+            constructorAdapter.notifyDataSetChanged();
+            return;
+        }
         String url = "https://ergast.com/api/f1/2024/constructorstandings.json";
         RequestQueue volleyQueue = Volley.newRequestQueue(getActivity());
 
@@ -231,6 +236,11 @@ public class HomePageFragment extends Fragment {
     }
 
     private void fetchDriverStandings() {
+//        top5ConstructorStandings.clear();
+        if (!top5DriversStandings.isEmpty()) {
+            driverAdapter.notifyDataSetChanged();
+            return;
+        }
         String url = "https://ergast.com/api/f1/2024/driverstandings.json";
         RequestQueue volleyQueue = Volley.newRequestQueue(getActivity());
 
